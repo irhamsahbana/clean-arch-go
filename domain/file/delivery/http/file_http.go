@@ -26,8 +26,7 @@ func NewFileHandler(router *gin.Engine, usecase domain.FileUsecaseContract, appS
 	}
 
 	permitted := []middleware.UserRole{
-		middleware.UserRole_OWNER,
-		middleware.UserRole_BRANCH_OWNER,
+		middleware.UserRole_USER,
 	}
 
 	router.PUT("files", middleware.Auth, middleware.Authorization(permitted), handler.UploadFile)

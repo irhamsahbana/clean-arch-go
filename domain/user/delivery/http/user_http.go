@@ -24,7 +24,7 @@ func NewUserHandler(router *gin.Engine, usecase domain.UserUsecaseContract) {
 	}
 
 	authorized := router.Group("/", middleware.Auth)
-	authorized.GET("/auth/logout", handler.Logout)
+	authorized.GET("auth/logout", handler.Logout)
 
 	router.POST("auth/login", handler.Login)
 	router.POST("auth/register", handler.Register)

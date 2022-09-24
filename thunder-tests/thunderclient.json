@@ -210,5 +210,85 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "1d34171d-5531-4395-9e13-9d9848210ec3",
+    "colId": "0c4941f9-da4c-41f0-88d8-98b6afa8298b",
+    "containerId": "fe56da40-bcbd-4813-8f69-894e69352916",
+    "name": "get all book",
+    "url": "{{base_url}}/books",
+    "method": "GET",
+    "sortNum": 460000,
+    "created": "2022-09-24T13:15:45.269Z",
+    "modified": "2022-09-24T13:15:55.172Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "a7877c04-ccf6-4eed-bb50-40a8e219ef3d",
+    "colId": "0c4941f9-da4c-41f0-88d8-98b6afa8298b",
+    "containerId": "fe56da40-bcbd-4813-8f69-894e69352916",
+    "name": "get book",
+    "url": "{{base_url}}/books/2",
+    "method": "GET",
+    "sortNum": 470000,
+    "created": "2022-09-24T13:27:06.239Z",
+    "modified": "2022-09-24T13:27:36.347Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "9b0c0bae-4eb3-4a62-94e2-395cbfd11c6f",
+    "colId": "0c4941f9-da4c-41f0-88d8-98b6afa8298b",
+    "containerId": "fe56da40-bcbd-4813-8f69-894e69352916",
+    "name": "create book",
+    "url": "{{base_url}}/books",
+    "method": "POST",
+    "sortNum": 480000,
+    "created": "2022-09-24T13:27:52.070Z",
+    "modified": "2022-09-24T14:11:35.508Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"title\": \"New book\",\n  \"description\": \"Brand new book, buy it!\",\n  \"author\": \"someone\",\n  \"year\": 2022\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "800c8734-52dd-4c51-93d1-9d1f5e9424c6",
+    "colId": "0c4941f9-da4c-41f0-88d8-98b6afa8298b",
+    "containerId": "fe56da40-bcbd-4813-8f69-894e69352916",
+    "name": "update books",
+    "url": "{{base_url}}/books/2",
+    "method": "PUT",
+    "sortNum": 490000,
+    "created": "2022-09-24T13:50:43.448Z",
+    "modified": "2022-09-24T14:11:21.913Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"title\": \"New book\",\n  \"description\": \"Brand new book, buy it!\",\n  \"author\": \"someone\",\n  \"year\": 2022\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "23f52387-f3be-4323-ae52-90d30a831b47",
+    "colId": "0c4941f9-da4c-41f0-88d8-98b6afa8298b",
+    "containerId": "fe56da40-bcbd-4813-8f69-894e69352916",
+    "name": "delete book",
+    "url": "{{base_url}}/books/3",
+    "method": "DELETE",
+    "sortNum": 475000,
+    "created": "2022-09-24T14:25:08.612Z",
+    "modified": "2022-09-24T14:48:08.656Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]

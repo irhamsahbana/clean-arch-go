@@ -18,6 +18,10 @@ import (
 	_userRepo "ca-boilerplate/domain/user/repository/mongo"
 	_userUsecase "ca-boilerplate/domain/user/usecase"
 
+	_bookHttp "ca-boilerplate/domain/book/delivery/http"
+	_bookRepo "ca-boilerplate/domain/book/repository/slice"
+	_bookUsecase "ca-boilerplate/domain/book/usecase"
+
 	_fileHttp "ca-boilerplate/domain/file/delivery/http"
 	_fileRepo "ca-boilerplate/domain/file/repository/mongo"
 	_fileUsecase "ca-boilerplate/domain/file/usecase"
@@ -49,6 +53,10 @@ func NewHttpRoutes(r *gin.Engine) {
 	fileRepo := _fileRepo.NewFileMongoRepository(*mongoDatabase)
 	fileUsecase := _fileUsecase.NewFileUploadUsecase(fileRepo, timeoutContext)
 	_fileHttp.NewFileHandler(r, fileUsecase, appStorageURL)
+
+	bookRepo := _bookRepo.NewBookSliceRepository()
+	bookUsecase := _bookUsecase.NewBookUsecase(bookRepo)
+	_bookHttp.NewBookHandler(r, bookUsecase)
 
 	appPort := fmt.Sprintf(":%v", bootstrap.App.Config.GetString("server.address"))
 	log.Fatal(r.Run(appPort))
