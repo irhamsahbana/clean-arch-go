@@ -2,11 +2,12 @@ package mongo
 
 import (
 	"ca-boilerplate/domain"
+	"ca-boilerplate/lib/logger"
 	"context"
-	"fmt"
 	"net/http"
 	"time"
 
+	"github.com/sirupsen/logrus"
 	"go.mongodb.org/mongo-driver/bson"
 )
 
@@ -35,11 +36,17 @@ func (repo *userRepository) InsertToken(ctx context.Context, userId, tokenId str
 
 	_, err := repo.Collection.UpdateOne(ctx, filter, bson.A{update})
 	if err != nil {
+		logger.Log(logrus.Fields{
+			"error": err,
+		}).Error("Failed to insert token")
 		return nil, http.StatusInternalServerError, err
 	}
 
 	user, code, err := repo.FindUserBy(ctx, "uuid", userId, false)
 	if err != nil {
+		logger.Log(logrus.Fields{
+			"error": err,
+		}).Error("Failed to find user")
 		return nil, code, err
 	}
 
@@ -53,11 +60,17 @@ func (repo *userRepository) RemoveToken(ctx context.Context, userId, tokenId str
 
 	_, err := repo.Collection.UpdateOne(ctx, filter, update)
 	if err != nil {
+		logger.Log(logrus.Fields{
+			"error": err,
+		}).Error("Failed to remove token")
 		return nil, http.StatusInternalServerError, err
 	}
 
 	user, code, err := repo.FindUserBy(ctx, "uuid", userId, false)
 	if err != nil {
+		logger.Log(logrus.Fields{
+			"error": err,
+		}).Error("Failed to find user")
 		return nil, code, err
 	}
 
@@ -72,11 +85,17 @@ func (repo *userRepository) UpdateUser(ctx context.Context, userId string, data 
 
 	_, err := repo.Collection.UpdateOne(ctx, filter, update)
 	if err != nil {
+		logger.Log(logrus.Fields{
+			"error": err,
+		}).Error("Failed to update user")
 		return nil, http.StatusInternalServerError, err
 	}
 
 	user, code, err := repo.FindUserBy(ctx, "uuid", userId, false)
 	if err != nil {
+		logger.Log(logrus.Fields{
+			"error": err,
+		}).Error("Failed to find user")
 		return nil, code, err
 	}
 
@@ -93,12 +112,17 @@ func (repo *userRepository) DeleteUser(ctx context.Context, userId string) (*dom
 
 	_, err := repo.Collection.UpdateOne(ctx, filter, update)
 	if err != nil {
+		logger.Log(logrus.Fields{
+			"error": err,
+		}).Error("Failed to delete user")
 		return nil, http.StatusInternalServerError, err
 	}
 
 	user, code, err := repo.FindUserBy(ctx, "uuid", userId, true)
 	if err != nil {
-		fmt.Println("sini 1")
+		logger.Log(logrus.Fields{
+			"error": err,
+		}).Error("Failed to find user")
 		return nil, code, err
 	}
 
