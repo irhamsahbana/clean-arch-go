@@ -9,11 +9,13 @@ func (u *userUsecase) DeleteUser(c context.Context, id string) (*dto.UserRespons
 	ctx, cancel := context.WithTimeout(c, u.contextTimeout)
 	defer cancel()
 
+	// delete user
 	result, code, err := u.userRepo.DeleteUser(ctx, id)
 	if err != nil {
 		return nil, code, err
 	}
 
+	// get role
 	role, code, err := u.userRoleRepo.FindUserRoleBy(ctx, "uuid", result.RoleUUID, false)
 	if err != nil {
 		return nil, code, err
