@@ -1,0 +1,47 @@
+[
+  {
+    "_id": "29a6b62f-0b8e-4ed4-9fef-39d8886a8403",
+    "name": "(Global Env)",
+    "default": false,
+    "global": true,
+    "sortNum": -1,
+    "created": "2022-08-05T02:57:35.618Z",
+    "modified": "2022-09-01T06:24:16.070Z",
+    "data": [
+      {
+        "name": "protocol",
+        "value": "http"
+      },
+      {
+        "name": "domain",
+        "value": "localhost:9099"
+      },
+      {
+        "name": "base_url",
+        "value": "{{protocol}}://{{domain}}"
+      }
+    ]
+  },
+  {
+    "_id": "53c00846-acd0-4c06-8406-8ebb47522663",
+    "name": "lucy-cashier",
+    "default": true,
+    "sortNum": 10000,
+    "created": "2022-09-13T03:51:41.116Z",
+    "modified": "2022-09-13T03:52:52.119Z",
+    "data": [
+      {
+        "name": "protocol",
+        "value": "http"
+      },
+      {
+        "name": "domain",
+        "value": "localhost:9099"
+      },
+      {
+        "name": "base_url",
+        "value": "{{protocol}}://{{domain}}"
+      }
+    ]
+  }
+]

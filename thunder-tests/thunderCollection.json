@@ -1,0 +1,52 @@
+[
+  {
+    "_id": "0c4941f9-da4c-41f0-88d8-98b6afa8298b",
+    "colName": "Clean Architecture",
+    "created": "2022-07-29T08:05:17.407Z",
+    "sortNum": 10000,
+    "folders": [
+      {
+        "_id": "840a75af-8f83-4d5e-9a0a-928c5e1e1670",
+        "name": "authentication",
+        "containerId": "",
+        "created": "2022-08-30T03:57:45.777Z",
+        "sortNum": 2500
+      },
+      {
+        "_id": "1e6cf1b8-d672-483e-b034-1c6016de8ae5",
+        "name": "user role",
+        "containerId": "",
+        "created": "2022-08-30T08:09:59.520Z",
+        "sortNum": 60000
+      },
+      {
+        "_id": "42abb1dd-a0ed-4fd8-90f9-8df43fde8639",
+        "name": "file upload",
+        "containerId": "",
+        "created": "2022-09-05T05:35:36.991Z",
+        "sortNum": 70000
+      },
+      {
+        "_id": "6125da54-a80d-4ffc-af92-65020f6e6226",
+        "name": "user",
+        "containerId": "",
+        "created": "2022-09-24T02:22:49.637Z",
+        "sortNum": 31250
+      }
+    ],
+    "settings": {
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "auth": {
+        "type": "bearer",
+        "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX3V1aWQiOiI0MjNhZDQwMy1iNWEyLTQ4ODItYmZkYi1hNzYwMmUyYWQyOTYiLCJyb2xlIjoidXNlciIsImlzcyI6IkF1dGhlbnRpY2F0b3IiLCJleHAiOjE2NjQwNDQ4ODcsIm5iZiI6MTY2NDAwODg4NywiaWF0IjoxNjY0MDA4ODg3fQ.LE2k4NwEYmpKPj3ZZqqoDwLdrnXKTx8T08-JVOWf1Nk"
+      },
+      "tests": [],
+      "envId": "53c00846-acd0-4c06-8406-8ebb47522663"
+    }
+  }
+]

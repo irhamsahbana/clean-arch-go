@@ -1,0 +1,48 @@
+app:
+  name: ca_boilerplate
+  url: http://localhost:9099
+  static_assets: ./storage-uploads
+  static_asssets_url: /storage
+  debug: true
+
+server:
+  address: 9099
+
+context:
+  timeout: 5
+
+mariadb:
+  host: ca_mariadb
+  port: 3306
+  user: root
+  pass: secret1234
+  name: ca_boilerplate
+
+mysql:
+  host: ca_mariadb
+  port: 3306
+  user: root
+  pass: secret1234
+  name: ca_boilerplate
+
+mongo:
+  host: ca_mongodb
+  port: 27017
+  user: ca_boilerplate
+  pass: secret1234
+  name: ca_boilerplate
+  monitor_query: false
+
+redis:
+  host: ca_redis
+  port: 6379
+  pass: xxxx
+  name: ca_boilerplate
+
+jwt:
+  secret: JwtSecretBroh
+  lifetime: 60
+
+admin:
+  username: vian
+  password: 12345678

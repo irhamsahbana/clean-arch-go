@@ -1,0 +1,57 @@
+version: '3.7'
+
+services:
+  ca_go:
+    build:
+      context: ../
+      dockerfile: ./docker/dockerfile
+    image: ca-boilerplate/go:latest
+    container_name: ca-boilerplate-go
+    restart: unless-stopped
+    ports:
+      - 9099:9099
+    volumes:
+      - ../:/app
+      - ./../../volumes-of-ca-go/shared:/shared
+    networks:
+      - ca-boilerplate
+    depends_on:
+     - ca_mongodb
+     - ca_mariadb
+
+  ca_mariadb:
+    image: mariadb:10.7
+    container_name: ca-boilerplate-mariadb
+    restart: unless-stopped
+    ports:
+      - 3306:3306
+    volumes:
+      - ./configs/mysql/conf.d:/etc/mysql/conf.d
+      - ./../../volumes-of-ca-go/database-mysql:/var/lib/mysql
+      - ./../../volumes-of-ca-go/shared:/shared
+    networks:
+      - ca-boilerplate
+    env_file:
+      - .env
+    healthcheck:
+      test: [ 'CMD', 'mysqladmin', 'ping', '-u', 'root', '-p${MARIADB_ROOT_PASSWORD}' ]
+      interval: 5s
+      timeout: 10s
+      retries: 5
+
+  ca_mongodb:
+    image: mongo:5
+    container_name: ca-boilerplate-mongodb
+    restart: unless-stopped
+    ports:
+      - 27017:27017
+    volumes:
+      - ./../../volumes-of-ca-go/database-mongo:/data/db
+      - ./../../volumes-of-ca-go/shared:/shared
+    networks:
+      - ca-boilerplate
+    env_file:
+      - .env
+
+networks:
+  ca-boilerplate: {}
